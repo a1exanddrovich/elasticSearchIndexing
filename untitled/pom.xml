@@ -12,44 +12,68 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <elasticsearch.version>8.6.2</elasticsearch.version>
+        <elasticsearch.client.version>7.17.9</elasticsearch.client.version>
+        <locationtech.version>0.8</locationtech.version>
+        <locationtech.core.version>1.15.0</locationtech.core.version>
+        <spring.version>3.0.3</spring.version>
+        <lombok.version>1.18.26</lombok.version>
+        <gson.version>2.10.1</gson.version>
+        <jackson.version>2.14.2</jackson.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>co.elastic.clients</groupId>
             <artifactId>elasticsearch-java</artifactId>
-            <version>8.6.2</version>
+            <version>${elasticsearch.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.locationtech.spatial4j</groupId>
+            <artifactId>spatial4j</artifactId>
+            <version>${locationtech.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.locationtech.jts</groupId>
+            <artifactId>jts-core</artifactId>
+            <version>${locationtech.core.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>xerces</groupId>
+                    <artifactId>xercesImpl</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
-            <version>3.0.3</version>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <version>3.0.3</version>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.elasticsearch.client</groupId>
             <artifactId>elasticsearch-rest-high-level-client</artifactId>
-            <version>7.17.9</version>
+            <version>${elasticsearch.client.version}</version>
         </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
-            <version>2.10.1</version>
+            <version>${gson.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.26</version>
+            <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-csv</artifactId>
-            <version>2.14.2</version>
+            <version>${jackson.version}</version>
         </dependency>
     </dependencies>
 
